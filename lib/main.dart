@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PPG BIO',
 
-
+      debugShowCheckedModeBanner: false,
       home: homepage(),
     );
   }

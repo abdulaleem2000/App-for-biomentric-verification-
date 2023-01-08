@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ppgbio/Dashbord.dart';
 import 'package:ppgbio/browseVideo.dart';
 
-
-
-
 class homeScreen extends StatefulWidget {
   const homeScreen({Key? key}) : super(key: key);
 
@@ -17,10 +14,13 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PPG Bio"),
-        
+        title: Center(
+            child: Text("PPG Bio", style:
+            TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)),
+        backgroundColor: Colors.blue[200],
       ),
       body: childWiget(),
+       backgroundColor: Colors.blue[100],
 
     );
   }
@@ -39,28 +39,76 @@ class _childWigetState extends State<childWiget> {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Container(
+            padding: EdgeInsets.all(20),
+              margin: EdgeInsets.only(
+                left: 25,right: 25, top: 55, bottom: 35),
 
-          Container(child: Center(child: Text("Don,t forget to Turn On Flash Light"))),
+              //margin: EdgeInsets.all(20),
+
+              
+              child: Center(
+                  child: Text("This Application is used for the Verification "
+                      "of Persons. This Application take a video from Mobile Phone Local Stroage and "
+                      "compare with ML Model",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                     // fontWeight: FontWeight.bold,
+                    ),
+                  )
+              ),
+            decoration: BoxDecoration(
+              color: Colors.blue[200],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30),
+
+              )
+            ),
+
+          ),
 
           Container(
-            child: Center(child: Text("Fadsjfkdfnaskjfkaahfjksdhjkfhjkahfdkjshjafhkj")),
-          width: MediaQuery.of(context).size.width * .7,
+            
+         //   margin: EdgeInsets.all(30),
+            margin: EdgeInsets.only(bottom: 45, right: 28, left: 28),
+            child: TextButton(
+              
+        style: ButtonStyle(
+            // : EdgeInsets.all(30),
+            //backgroundColor: MaterialStateColor.resolveWith((states) => Colors.redAccent),
+
+        ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BrowseVideo()));
+
+                  print("hello Button Pressed");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text("Let's Get Started",
+                    style: TextStyle(
+                      fontSize: 35,
+                      //fontWeight: FontWeight.bold,
+                      color: Colors.black54
+                    ),),
+                    Icon(
+                      Icons.arrow_forward,
+                      size: 32,
+                    ),
+                    
+                  ],
+                )),
           ),
 
 
-
-          TextButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>BrowseVideo()));
-
-            print("hello Button Pressed");
-          }, child: Text("Upload "))
         ],
       ),
     );
   }
 }
-
-
-
