@@ -1,6 +1,6 @@
 # ppgbio
 
-A new Flutter project.
+This flutter application is used to perform biometric verification using video containing ppg.
 
 ## Getting Started
 
